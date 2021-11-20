@@ -31,7 +31,7 @@ $img-width: 45%;
   }
 }
 
-@mixin for-table-only {
+@mixin for-tablet-only {
   @media(min-width: 767px) and (max-width: 1199.98px) {
     @content;
   }
@@ -62,12 +62,32 @@ $img-width: 45%;
       border-bottom: 1px solid $light-grey;
       margin-left: auto;
       margin-right: auto;
-      width: 80%;
-      padding: 20px 0;
+
+      @include for-phone-only {
+        width: 90%;
+        padding: 15px 0;
+        flex-wrap: wrap;
+      }
+
+      @include for-tablet-only {
+        width: 80%;
+        padding: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      @include for-desktop-only {
+        width: 80%;
+        padding: 20px 0;
+        flex-wrap: wrap;
+      }
     }
 
     &__links {
       position: relative;
+
+      @include for-phone-only {
+        padding: 5px 0;
+      }
 
       &:not(:last-child):after {
         content: "";
@@ -121,6 +141,10 @@ $img-width: 45%;
   font-family: Arial, Helvetica, sans-serif;
 
   &__content {
+    @include for-phone-only {
+      width: 100%;
+    }
+
     width: 70%;
     padding: 40px 8px;
   }
@@ -294,9 +318,15 @@ $img-width: 45%;
 }
 
 .about {
+  @include for-phone-only {
+    width: 90%;
+  }
+
   max-width: 80%;
   margin: 0 auto 40px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial,
+  Helvetica,
+  sans-serif;
 
   &__title {
     background-color: $light-grey;
@@ -348,6 +378,14 @@ $img-width: 45%;
     margin: 30px auto;
     text-align: center;
     font-size: 16px;
+
+    @include for-phone-only {
+      width: 90%;
+    }
+
+    @include for-tablet-only {
+      width: 80%;
+    }
   }
 
   &__split {
@@ -359,10 +397,19 @@ $img-width: 45%;
 
   &__img_description {
     width: $img-width;
+
+    @include for-phone-only {
+      width: 80%;
+    }
   }
 
   &__txt {
     width: calc(100% - #{$img-width});
+
+    @include for-phone-only {
+      width: 90%;
+      text-align: center;
+    }
   }
 
   &__p {
@@ -373,9 +420,15 @@ $img-width: 45%;
 }
 
 .article {
+  @include for-phone-only {
+    width: 90%;
+  }
+
   width: 80%;
   margin: 0 auto 40px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial,
+  Helvetica,
+  sans-serif;
 
   &__title {
     background-color: $light-grey;
